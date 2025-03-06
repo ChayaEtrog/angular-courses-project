@@ -1,7 +1,7 @@
 <div class="overlay">
     <div class="user-form">
         <mat-card>
-            <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="courseForm">
                 <mat-card-content>
 
                     <mat-form-field class="form-field" appearance="outline">
@@ -44,7 +44,7 @@
                     <button mat-flat-button color="primary" type="submit" (click)="onSubmit()" class="button">
                         save
                     </button>
-                    <button mat-flat-button color="warn" type="submit" (click)="closeForm.emit();" class="button">
+                    <button mat-flat-button color="warn" (click)="closeForm.emit();" class="button">
                         cancel
                     </button>
                 </mat-card-actions>

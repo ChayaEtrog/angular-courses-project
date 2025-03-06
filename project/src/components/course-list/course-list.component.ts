@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CoursesService } from '../../services/courses.service';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -13,6 +13,7 @@ import { CourseFormComponent } from '../course-form/course-form.component';
 import { LessonFormComponent } from '../lesson-form/lesson-form.component';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-course-list',
@@ -33,21 +34,22 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './course-list.component.html',
   styleUrl: './course-list.component.css'
 })
-export class CourseListComponent implements OnInit {
+export class CourseListComponent implements OnInit, OnDestroy {
   courses: any[] = [];
   loading: boolean = true;
   courseId: number | null = null;
-
   isOpenCourseForm: boolean = false;
   isOpenLessonForm: boolean = false;
+  destroy$ = new Subject<void>();
 
   constructor(private coursesService: CoursesService, public authService: AuthService) { }
 
   ngOnInit(): void {
+    this.coursesService.getCourses().pipe(takeUntil(this.destroy$)).subscribe();
+
     this.coursesService.courses$.subscribe(courses => {
       this.courses = courses;
     });
-    this.coursesService.getCourses().subscribe();
   }
 
   closeLessonsForm(): void {
@@ -59,5 +61,10 @@ export class CourseListComponent implements OnInit {
 
   courseDeleted() {
     this.courseId = null;
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

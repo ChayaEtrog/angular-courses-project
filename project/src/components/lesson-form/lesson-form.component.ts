@@ -40,7 +40,6 @@ export class LessonFormComponent {
 
   onSubmit(): void {
     if (this.lessonForm.valid) {
-      console.log(this.lessonForm.value);
       this.lessonsService.createLesson(this.lessonForm.value.courseId,this.lessonForm.value.title,this.lessonForm.value.content).subscribe(
         (response) => {
           this.closeForm.emit();

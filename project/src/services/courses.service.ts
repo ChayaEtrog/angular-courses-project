@@ -13,9 +13,9 @@ export class CoursesService {
 
   constructor(private http: HttpClient) { }
 
-  getCourses(): Observable<any> {
-    return this.http.get<any[]>(this.apiUrl).pipe(
-      tap(courses => this.coursesSubject.next(courses)) 
+  getCourses(){
+  return this.http.get<any[]>(this.apiUrl).pipe(
+      tap(courses => this.coursesSubject.next(courses))
     );
   }
 
