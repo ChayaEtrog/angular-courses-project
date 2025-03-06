@@ -42,7 +42,7 @@ export class CourseFormComponent {
 
   onSubmit(): void {
     if (this.courseForm.valid) {
-      console.log(this.courseForm.value);
+     
       this.coursesService.createCourse(this.courseForm.value.title,this.courseForm.value.description,this.courseForm.value.teacherId).subscribe(
         (response) => {
           this.closeForm.emit();
