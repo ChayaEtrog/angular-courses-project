@@ -40,8 +40,6 @@ export class ShowLessonsComponent implements OnChanges {
     this.lessonsService.getLessonById(this.courseId.toString()).subscribe({
       next: (data) => {
         this.lessons = data;
-        console.log(this.lessons);
-
       },
       error: (err) => {
         this.errorMessage = 'Error fetching lessons';

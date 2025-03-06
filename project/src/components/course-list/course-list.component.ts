@@ -41,7 +41,7 @@ export class CourseListComponent implements OnInit {
   isOpenCourseForm: boolean = false;
   isOpenLessonForm: boolean = false;
 
-  constructor(private coursesService: CoursesService, public authService:AuthService) { }
+  constructor(private coursesService: CoursesService, public authService: AuthService) { }
 
   ngOnInit(): void {
     this.coursesService.courses$.subscribe(courses => {
@@ -50,14 +50,14 @@ export class CourseListComponent implements OnInit {
     this.coursesService.getCourses().subscribe();
   }
 
-  closeLessonsForm():void{
-    this.isOpenLessonForm = false; 
+  closeLessonsForm(): void {
+    this.isOpenLessonForm = false;
   }
-  closeCoursesForm():void{
-    this.isOpenCourseForm = false; 
+  closeCoursesForm(): void {
+    this.isOpenCourseForm = false;
   }
 
-  courseDeleted(){
-    this.courseId=null;
+  courseDeleted() {
+    this.courseId = null;
   }
 }
