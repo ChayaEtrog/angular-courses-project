@@ -22,7 +22,7 @@
         </mat-nav-list>
     </mat-sidenav>
     @if(courseId){
-    <app-course-details (courseDeleted)="courseDeleted()" [courseId]="courseId"></app-course-details>
+    <app-course-details (courseDeleted)="courseDeleted()" [courseId]="courseId" [refreshTrigger]="refreshTriger"></app-course-details>
     }
     @if(!courseId) {
     <div>

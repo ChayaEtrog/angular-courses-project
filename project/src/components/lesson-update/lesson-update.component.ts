@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LessonsService } from '../../services/lessons.service';
 import { MatInputModule } from '@angular/material/input';
@@ -26,7 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   templateUrl: './lesson-update.component.html',
   styleUrl: './lesson-update.component.css'
 })
-export class LessonUpdateComponent {
+export class LessonUpdateComponent implements OnChanges{
   @Output() closeForm = new EventEmitter<any>();
   @Input() lesson: any | null = {};
   lessonForm: FormGroup;
@@ -38,7 +38,15 @@ export class LessonUpdateComponent {
       courseId: [this.lesson.courseId, [Validators.required]]
     });
   }
-
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['lesson'] && this.lesson) {
+      this.lessonForm.patchValue({
+        title: this.lesson.title || '',
+        content: this.lesson.content || '',
+        courseId: this.lesson.courseId || ''
+      });
+    }
+  }
   onSubmit(): void {
     if (this.lessonForm.invalid) {
       return;

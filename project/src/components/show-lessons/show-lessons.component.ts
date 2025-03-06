@@ -23,6 +23,7 @@ import { ErrorMessageComponent } from '../error-message/error-message.component'
 })
 export class ShowLessonsComponent implements OnChanges {
   @Input() courseId: number = -1;
+  @Input() refreshTrigger: boolean = false;
   errorMessage = '';
   lessons: any[] = [];
   currLesson: any = null;
@@ -31,7 +32,7 @@ export class ShowLessonsComponent implements OnChanges {
   constructor(private lessonsService: LessonsService, public authService:AuthService) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['courseId'] && this.courseId !== -1) {
+    if ((changes['courseId'] && this.courseId !== -1)||changes['refreshTrigger']) {
       this.fetchLessons();
     }
   }

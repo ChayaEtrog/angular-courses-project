@@ -40,6 +40,7 @@ export class CourseListComponent implements OnInit, OnDestroy {
   courseId: number | null = null;
   isOpenCourseForm: boolean = false;
   isOpenLessonForm: boolean = false;
+  refreshTriger: boolean = false;
   destroy$ = new Subject<void>();
 
   constructor(private coursesService: CoursesService, public authService: AuthService) { }
@@ -54,6 +55,7 @@ export class CourseListComponent implements OnInit, OnDestroy {
 
   closeLessonsForm(): void {
     this.isOpenLessonForm = false;
+    this.refreshTriger=true;
   }
   closeCoursesForm(): void {
     this.isOpenCourseForm = false;

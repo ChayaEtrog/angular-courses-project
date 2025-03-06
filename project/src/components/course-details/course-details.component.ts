@@ -30,6 +30,7 @@ import { IconPipe } from '../../pipes/icon.pipe';
 })
 export class CourseDetailsComponent implements OnChanges {
   @Input() courseId: number = -1;
+  @Input() refreshTrigger: boolean = false;
   @Output() courseDeleted = new EventEmitter<any>();
   courseDetails: any = null;
   isLoading = false;
@@ -148,9 +149,7 @@ export class CourseDetailsComponent implements OnChanges {
     this.isLoading = true;
     this.authService.currentUser.subscribe((user: any) => {
         this.courseService.getCoursesByStudentId(user.id).subscribe(
-          (courses: any[]) => {         
-            console.log(courses);
-               
+          (courses: any[]) => {                        
             this.isStudentEnrolled = courses.some(course => course.id === this.courseId);
             this.isLoading = false;
           },
