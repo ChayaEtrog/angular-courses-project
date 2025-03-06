@@ -28,14 +28,21 @@
     <mat-divider></mat-divider>
 
     <mat-card-footer>
+        @if(!showLessons){
         <button mat-stroked-button color="primary" (click)="showLessons=!showLessons" style="margin-bottom: 15px;">show
-            lessons</button>
+            lessons</button>}
+        @else {
+            <button mat-stroked-button color="primary" (click)="showLessons=!showLessons" style="margin-bottom: 15px;">close
+                lessons</button>}
+
         @if(!authService.isAdminTeacher()){
         @if(!isStudentEnrolled){
-        <button mat-stroked-button color="primary" (click)="joinToCourse()" style="margin-bottom: 15px; margin-left: 10px;">{{buttonJoin | icon}}</button>
+        <button mat-stroked-button color="primary" (click)="joinToCourse()"
+            style="margin-bottom: 15px; margin-left: 10px;">{{buttonJoin | icon}}</button>
         }
         @else {
-        <button mat-stroked-button color="primary" (click)="leaveCourse()" style="margin-bottom: 15px;  margin-left: 10px;">{{buttonLeave| icon}}</button>
+        <button mat-stroked-button color="primary" (click)="leaveCourse()"
+            style="margin-bottom: 15px;  margin-left: 10px;">{{buttonLeave| icon}}</button>
         }}
     </mat-card-footer>
     @if(showLessons){
