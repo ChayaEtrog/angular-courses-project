@@ -1,0 +1,35 @@
+@if(lessons.length > 0) {
+<mat-chip-listbox class="chip-container">
+    @for (lesson of lessons ; track $index) {
+    <mat-chip (click)="showDetails(lesson)">{{lesson.title}}</mat-chip>
+    }
+</mat-chip-listbox>
+}
+@else {
+<h3 class="no-lessons">No lessons for this course</h3>
+}
+
+@if(currLesson&&lessons.length > 0) {
+@if(authService.isAdminTeacher()){
+<div class="header-icons">
+    <button mat-icon-button (click)="isWantUpdate=!isWantUpdate">
+        <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button (click)="deleteLesson(courseId,currLesson.id)">
+        <mat-icon>delete</mat-icon>
+    </button>
+</div>}
+<h4>Content:</h4>
+<div class="lesson-details">
+
+    <h3>{{currLesson.content}}</h3>
+</div>
+}
+
+@if(isWantUpdate){
+<app-lesson-update (closeForm)="closeUpdateForm()" [lesson]="currLesson"></app-lesson-update>
+}
+
+@if(errorMessage){
+    <app-error-message [message]="errorMessage"></app-error-message>
+}

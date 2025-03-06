@@ -1,0 +1,47 @@
+<div class="overlay">
+    <div class="user-form">
+        <mat-card>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <mat-card-content>
+  
+                    <!-- Password -->
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" formControlName="password">
+                        @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+                        @if (loginForm.get('password')?.hasError('required')) {
+                        <mat-error>Password is required.</mat-error>
+                        }
+                        @if (loginForm.get('password')?.hasError('minlength')) {
+                        <mat-error>Password must be more than 4 characters.</mat-error>
+                        }
+                        }
+                    </mat-form-field>
+  
+                    <!-- Email -->
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" id="email" formControlName="email">
+                        @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+                        <mat-error>Email is not valid.</mat-error>
+                        }
+                    </mat-form-field>
+  
+                </mat-card-content>
+  
+                <mat-card-actions>
+                    <button mat-flat-button color="primary" type="submit" 
+                        (click)="onSubmit()" 
+                        class="button">
+                        save
+                    </button>
+                    <button mat-flat-button color="warn" type="submit" 
+                        (click)="formClosed.emit()"  
+                        class="button">
+                        cancle
+                    </button>
+                </mat-card-actions>
+            </form>
+        </mat-card>
+    </div>
+  </div>

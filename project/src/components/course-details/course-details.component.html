@@ -1,0 +1,53 @@
+<mat-card class="course-card">
+
+    <mat-card-header>
+        @if(authService. isAdminTeacher()){
+        <div class="header-icons">
+            <button mat-icon-button (click)="isWantUpdate=!isWantUpdate">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteCourse(courseId)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>}
+        <mat-card-title>{{ courseDetails?.title }}</mat-card-title>
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+        teacher: {{ teacherName }}
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+        description: {{ courseDetails?.description }}
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-footer>
+        <button mat-stroked-button color="primary" (click)="showLessons=!showLessons" style="margin-bottom: 15px;">show
+            lessons</button>
+        @if(!authService.isAdminTeacher()){
+        @if(!isStudentEnrolled){
+        <button mat-stroked-button color="primary" (click)="joinToCourse()" style="margin-bottom: 15px; margin-left: 10px;">{{buttonJoin | icon}}</button>
+        }
+        @else {
+        <button mat-stroked-button color="primary" (click)="leaveCourse()" style="margin-bottom: 15px;  margin-left: 10px;">{{buttonLeave| icon}}</button>
+        }}
+    </mat-card-footer>
+    @if(showLessons){
+    <app-show-lessons [courseId]="courseId"></app-show-lessons>
+    }
+</mat-card>
+
+
+@if(isWantUpdate){
+<app-course-update (courseUpdated)="closeUpdateCourse()" [course]="courseDetails"></app-course-update>
+}
+
+@if(errorMessage){
+<app-error-message [message]="errorMessage"></app-error-message>
+}

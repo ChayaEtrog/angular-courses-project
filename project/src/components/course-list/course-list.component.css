@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 90vh;
+  overflow: hidden;
+  /* Prevent scrolling */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+.example-container {
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.full-height-sidenav {
+  height: 90vh;
+  overflow-y: auto;
+  border-right: 2px solid #e0aeba;
+}
+
+mat-sidenav-content {
+  height: 90vh;
+  padding: 20px;
+  overflow: auto;
+}
+
+/* Backdrop for the popup */
+/* .popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+} */
+
+mat-sidenav {
+  min-width: 13vw;
+}
+
+.course-item {
+  display: flex;
+  align-items: center;
+}
+
+.course-item mat-icon {
+  margin-right: 8px;
+}

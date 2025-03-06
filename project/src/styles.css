@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+:root {
+    --mat-primary: #274354e0;
+    /* צבע ראשי */
+    --mat-accent: #e7909a;
+    /* צבע משני */
+    --mat-warn: #e53935;
+    /* צבע שגיאות */
+}
+
+button[mat-flat-button][color="primary"]{
+    color: #274354e0 !important;
+    border-radius: 30px !important;
+    background-color: rgba(201, 200, 200, 0.297) !important;
+    margin: 4px;
+}
+button[mat-flat-button][color="warn"]{
+    color: #e7909a !important;
+    border-radius: 30px !important;
+    background-color: rgba(201, 200, 200, 0.297) !important;
+    margin: 4px;
+}
+
+button[mat-stroked-button]{
+    color: #274354e0 !important;
+    border-radius: 2px !important;
+    margin: 4px;
+}

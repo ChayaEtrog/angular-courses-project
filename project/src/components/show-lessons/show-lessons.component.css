@@ -1,0 +1,54 @@
+.chip-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* מינימום 150px, מקסימום 3 עמודות */
+    gap: 10px;
+    /* רווחים בין הצ'יפים */
+    max-width: 600px;
+    /* רוחב מרבי */
+}
+
+mat-chip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.lesson-details {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.no-lessons {
+    margin: 7px;
+}
+
+h4 {
+    margin-top: 20px;
+}
+
+
+.lesson-details {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.header-icons {
+    display: flex;
+    justify-content: flex-end; /* ממקם את האייקונים בצד ימין */
+    gap: 10px; /* רווחים בין האייקונים */
+    margin-top: 10px; /* רווח קטן מעל האייקונים */
+}
+mat-icon-button {
+    border: none !important;
+}
+
+mat-icon {
+    font-size: 20px; /* גודל האייקון */
+}

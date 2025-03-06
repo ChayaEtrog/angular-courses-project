@@ -1,0 +1,54 @@
+<div class="overlay">
+    <div class="user-form">
+        <mat-card>
+            <form [formGroup]="lessonForm" (ngSubmit)="onSubmit()">
+                <mat-card-content>
+  
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <input matInput  formControlName="title">
+                        @if (lessonForm.get('title')?.invalid && lessonForm.get('title')?.touched) {
+                        @if (lessonForm.get('title')?.hasError('title')) {
+                        <mat-error>title is required.</mat-error>
+                        }
+                        @if (lessonForm.get('title')?.hasError('minlength')) {
+                        <mat-error>title must be more than 3 characters.</mat-error>
+                        }
+                        }
+                    </mat-form-field>
+  
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label>Content</mat-label>
+                        <input matInput id="content" formControlName="content">
+                        @if (lessonForm.get('content')?.invalid && lessonForm.get('content')?.touched) {
+                        <mat-error>content is required.</mat-error>
+                        }
+                    </mat-form-field>
+
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label>Course id</mat-label>
+                        <input matInput type="courseId" id="courseId" formControlName="courseId">
+                        @if (lessonForm.get('courseId')?.invalid && lessonForm.get('courseId')?.touched) {
+                        <mat-error>course id is not valid.</mat-error>
+                        }
+                    </mat-form-field>
+                </mat-card-content>
+  
+                <mat-card-actions>
+                    <button mat-flat-button  color="primary" type="submit" 
+                        (click)="onSubmit()" 
+                        class="button">
+                        save
+                    </button>
+                    <button mat-flat-button  color="warn" type="submit" 
+                    (click)="closeForm.emit()"  
+                    class="button">
+                    cancel
+                </button>
+                </mat-card-actions>
+            </form>
+        </mat-card>
+    </div>
+  </div>
+
+

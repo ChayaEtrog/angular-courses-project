@@ -1,0 +1,103 @@
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.banner {
+    width: 100vw;
+    height: 75vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.dashboard-container {
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    gap: 10vw;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    padding: 20px;
+    color: #274354e0;
+    border-radius: 3px;
+    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.2) !important;
+    margin-bottom: 40px !important;
+}
+
+.mat-divider {
+    margin-top: 30px;
+    margin-bottom: 35px;
+    font-size: 25px;
+    color: #274354e0;
+    size: 5px;
+}
+
+.stat-card div {
+    font-size: 40px;
+    margin-top: 25px;
+}
+
+h1 {
+    margin-bottom: 25px;
+}
+
+.lecture-card {
+    width: 200px;
+    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.2) !important;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.logos-container {
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    gap: 5vw;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+
+.logo-thumbnail {
+    width: 100%;
+    height: 100%;
+    margin-left: 20px;
+
+}
+
+.sen {
+    color: #274354e0;
+    font-size: 35px;
+    padding-left: 37vw;
+    margin-bottom: 50px;
+}
+
+.footer {
+    background-color: #e0aeba;
+    color: #274354e0;
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

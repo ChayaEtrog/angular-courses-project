@@ -1,0 +1,75 @@
+/* course-details.component.css */
+
+/* Style for the course card */
+.course-card {
+  margin: 20px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 20vw;
+}
+
+.mat-card-header {
+  background-color: #e1f5fe;
+  color: #0277bd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-icons {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  display: flex;
+  gap: 4px;
+}
+mat-icon{
+  font-size: 20px !important;
+}
+.mat-card-title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.mat-card-subtitle {
+  color: #0288d1;
+}
+
+.mat-divider {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* Style for the lessons card */
+.lessons-card {
+  margin-top: 20px;
+}
+
+.lessons-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.lessons-card li {
+  background-color: #fafafa;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Style for error message */
+.error-card {
+  margin-top: 20px;
+  background-color: #ffebee;
+}
+
+button {
+  margin-top: 10px;
+}
+
+button.mat-raised-button {
+  border-radius: 4px;
+  text-transform: none;
+}

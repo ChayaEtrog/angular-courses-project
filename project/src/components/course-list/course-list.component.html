@@ -1,0 +1,40 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" opened class="full-height-sidenav">
+        <mat-nav-list>
+            @for(course of courses; track course.id){
+            <mat-list-item class="course-item" (click)="courseId=course.id">
+                <mat-icon>book</mat-icon>
+                <span>{{ course.title }}</span>
+            </mat-list-item>
+            }
+            @if(authService.isAdminTeacher()){
+            <mat-list-item style="background-color:#274354e0 ; border-radius: 0cm;"
+                (click)="isOpenCourseForm = !isOpenCourseForm">
+                <mat-icon style="color:white">add</mat-icon> <span style=" color:white; font-size: 20px;">add
+                    course</span>
+            </mat-list-item>
+            <mat-list-item style="background-color:#e0aeba ; border-radius: 0cm;"
+                (click)="isOpenLessonForm = !isOpenLessonForm">
+                <mat-icon style="color:white">add</mat-icon> <span style=" color:white; font-size: 20px;">add
+                    lesson</span>
+            </mat-list-item>
+        }
+        </mat-nav-list>
+    </mat-sidenav>
+    @if(courseId){
+    <app-course-details (courseDeleted)="courseDeleted()" [courseId]="courseId"></app-course-details>
+    }
+    @if(!courseId) {
+    <div>
+        <h1 style="margin-left: 420px;margin-top: 5px; color:#274354e0;">Select a course to see details</h1>
+    </div>
+    }
+
+</mat-sidenav-container>
+@if(isOpenCourseForm){
+<app-course-form (closeForm)="closeCoursesForm()"></app-course-form>
+}
+
+@if(isOpenLessonForm){
+<app-lesson-form (closeForm)="closeLessonsForm()"></app-lesson-form>
+}
