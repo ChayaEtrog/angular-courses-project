@@ -77,6 +77,8 @@ export class CourseDetailsComponent implements OnChanges {
 
   closeUpdateCourse() {
     this.isWantUpdate = false;
+    this.fetchCourseDetails();
+    this.fetchTeacher();
   }
 
   wantUpdate() {
